@@ -11,8 +11,7 @@ import {
   Box,
 } from '@gluestack-ui/themed';
 import {storiesData} from '../../components/StoryView/stories';
-import {UsernameContext} from '../../components/ContextAPI/ContextAPI';
-
+import {UsernameContext} from '../../Context/ContextAPI';
 
 const Login = ({navigation}: any) => {
   const [username, setUsername] = useState('');
@@ -72,7 +71,6 @@ const Login = ({navigation}: any) => {
             <ButtonText fontSize={18}>Login</ButtonText>
           </Button>
         </TouchableOpacity>
-
       </View>
     </>
   );

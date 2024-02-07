@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {Image, Text, View} from '@gluestack-ui/themed';
 import {PostData} from './PostData';
-import {useUsername} from '../ContextAPI/ContextAPI';
+import {useUsername} from '../../Context/ContextAPI';
 import {useNavigation} from '@react-navigation/native';
 
 const UserPost = () => {
@@ -41,7 +41,7 @@ const UserPost = () => {
       setPosts([newPost, ...posts]);
     }
   }, [newPost]);
-  
+
   const handleIsLiked = (postId: any) => {
     setIsLiked(prevLikes => {
       const newLikes: any = {...prevLikes};
@@ -93,6 +93,23 @@ const UserPost = () => {
   const renderItem = ({item, index}: any) => {
     return (
       <View mt={10} key={item.id}>
+        <View flexDirection="row" alignItems="center" px={15} my={10}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <Image
+              w={16}
+              h={12}
+              source={require('../../assets/Back.png')}
+              alt="back"
+              mr={20}
+            />
+          </TouchableOpacity>
+          <Text color="black" fontSize={16} fontWeight="600">
+            Posts
+          </Text>
+        </View>
         <View
           flexDirection="row"
           alignItems="center"

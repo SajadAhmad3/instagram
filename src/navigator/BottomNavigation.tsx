@@ -1,12 +1,11 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import AddPost from '../screen/Dashboard/AddPost';
-import Profile from '../screen/Dashboard/Profile';
-import Dashboard from '../screen/Dashboard/Dashboard';
+import AddPost from '../screen/AddPost';
+import Profile from '../screen/Profile';
+import Dashboard from '../screen/Dashboard';
 import {Image} from '@gluestack-ui/themed';
 
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
-
   return (
     <Tab.Navigator screenOptions={{headerShown: false, tabBarShowLabel: false}}>
       <Tab.Screen

@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {storiesData} from '../StoryView/stories';
 import {Image, View, Text} from '@gluestack-ui/themed';
 import {useNavigation} from '@react-navigation/native';
-import {useUsername} from '../ContextAPI/ContextAPI';
-import Header from '../Header/Header';
+import {useUsername} from '../../Context/ContextAPI';
+import Header from '../Header';
 
 const Stories = () => {
   const navigation: any = useNavigation();
@@ -28,14 +28,14 @@ const Stories = () => {
             }}>
             <View borderWidth={3} borderRadius={40} p={2} borderColor="#c057ff">
               <View>
-              <Image
-                position="relative"
-                source={profilePic}
-                height={55}
-                width={55}
-                borderRadius={35}
-                alt={'profile-pic'}
-              />
+                <Image
+                  position="relative"
+                  source={profilePic}
+                  height={55}
+                  width={55}
+                  borderRadius={35}
+                  alt={'profile-pic'}
+                />
                 <Image
                   source={require('../../assets/bplus.png')}
                   height={16}
@@ -47,7 +47,6 @@ const Stories = () => {
                   right={0}
                 />
               </View>
-              
             </View>
           </TouchableOpacity>
           <Text textAlign="center" fontSize={12}>

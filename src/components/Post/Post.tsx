@@ -12,8 +12,8 @@ import {
 } from 'react-native';
 import {Image, Text, View} from '@gluestack-ui/themed';
 import {PostData} from './PostData';
-import Stories from '../Stories/Stories';
-import {useUsername} from '../ContextAPI/ContextAPI';
+import Stories from '../Stories';
+import {useUsername} from '../../Context/ContextAPI';
 import {useNavigation} from '@react-navigation/native';
 
 const Post = () => {
@@ -94,7 +94,7 @@ const Post = () => {
     if (newPost) {
       setIsLiked(prevLikes => ({
         ...prevLikes,
-        [newPost.id]: newPost.like > 0, 
+        [newPost.id]: newPost.like > 0,
       }));
       setPosts([newPost, ...posts]);
     }

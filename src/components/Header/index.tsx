@@ -1,7 +1,6 @@
 import {View} from '@gluestack-ui/themed';
 import React from 'react';
 import {Image, TouchableOpacity} from 'react-native';
-// import Entypo from 'react-native-vector-icons/Entypo';
 
 function Header() {
   return (

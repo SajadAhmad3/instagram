@@ -8,7 +8,7 @@ import {
   StyleSheet,
   ScrollView,
 } from 'react-native';
-import {useUsername} from '../../components/ContextAPI/ContextAPI';
+import {useUsername} from '../../Context/ContextAPI';
 import {useNavigation} from '@react-navigation/native';
 
 const EditPost = ({route}: any) => {

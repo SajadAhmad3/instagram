@@ -138,10 +138,10 @@ const StoryView = ({route}: any) => {
         <View
           flexDirection="row"
           alignItems="center"
-          pt={12}
-          pl={12}
           position="relative"
-          zIndex={2}>
+          zIndex={2}
+          pt={12}
+          pl={12}>
           <Image
             width={30}
             height={30}
@@ -157,6 +157,21 @@ const StoryView = ({route}: any) => {
           </Text>
         </View>
 
+
+        <TouchableOpacity
+          style={{position: 'absolute', top: 25, right: 30, zIndex: 99,}}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Image
+            w={12}
+            h={12}
+            source={require('../../assets/close.png')}
+            alt="close"
+            tintColor={'white'}
+          />
+        </TouchableOpacity>
+
         {/* User story .................................... */}
 
         <View position="absolute">
@@ -166,7 +181,7 @@ const StoryView = ({route}: any) => {
             height={screenHeight - 125}
             $android-h={screenHeight - 135}
             width={screenWidth}
-            borderRadius={10}
+            borderRadius={5}
             zIndex={1}
           />
 

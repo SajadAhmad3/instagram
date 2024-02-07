@@ -4,7 +4,7 @@ import {TouchableOpacity} from 'react-native';
 import {UserData} from './UserData';
 import {PostData} from '../Post/PostData';
 import {useNavigation} from '@react-navigation/native';
-import {useUsername} from '../ContextAPI/ContextAPI';
+import {useUsername} from '../../Context/ContextAPI';
 
 function ProfileBody({username}: any) {
   const navigation: any = useNavigation();
@@ -36,11 +36,6 @@ function ProfileBody({username}: any) {
   }
   function editPic(newPic: any) {
     setPic(newPic);
-  }
-
-  function handleLogout() {
-    setNewPosts([]);
-    navigation.navigate('Login');
   }
 
   return (
@@ -135,9 +130,9 @@ function ProfileBody({username}: any) {
             justifyContent: 'center',
             height: 30,
           }}
-          onPress={() => handleLogout()}>
+          onPress={() => {}}>
           <Text color="black" fontSize={12} fontWeight="500">
-            Logout
+            Share Profile
           </Text>
         </TouchableOpacity>
       </View>

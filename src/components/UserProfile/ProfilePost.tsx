@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {UserData} from './UserData';
 import {PostData} from '../Post/PostData';
-import {useUsername} from '../ContextAPI/ContextAPI';
+import {useUsername} from '../../Context/ContextAPI';
 import {useNavigation} from '@react-navigation/native';
 
 const icons = [

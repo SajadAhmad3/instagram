@@ -15,7 +15,7 @@ import {
   launchImageLibrary,
   MediaType,
 } from 'react-native-image-picker';
-import {useUsername} from '../../components/ContextAPI/ContextAPI';
+import {useUsername} from '../../Context/ContextAPI';
 import {PostData} from '../../components/Post/PostData';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 const {v4: uuidv4} = require('uuid');
@@ -81,7 +81,7 @@ const AddPost = () => {
       };
 
       setNewPost(newPost);
-      setNewPosts((prevPosts: any[])=> [...prevPosts, newPost]);
+      setNewPosts((prevPosts: any[]) => [...prevPosts, newPost]);
       navigation.navigate('Home');
       setCaption('');
       setImageUri(null);
@@ -137,8 +137,6 @@ const AddPost = () => {
       }
     });
   };
-
-
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -207,7 +205,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 10,
     marginBottom: 20,
-    marginTop:20,
+    marginTop: 20,
     borderWidth: 1,
     borderColor: '#ccc',
   },
@@ -215,7 +213,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderRadius: 10,
-    
   },
   choosePhotoText: {
     fontSize: 18,
