@@ -77,6 +77,12 @@ function ProfileHeader({username}: any) {
             <TouchableOpacity onPress={() => {}}>
               <Text style={styles.option}>Saved</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={styles.option}>Close Friends</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => {}}>
+              <Text style={styles.option}>Favorites</Text>
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 setIsModalVisible(false);
