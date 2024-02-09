@@ -92,179 +92,166 @@ const UserPost = () => {
 
   const renderItem = ({item, index}: any) => {
     return (
-      <View mt={10} key={item.id}>
-        <View flexDirection="row" alignItems="center" px={15} my={10}>
-          <TouchableOpacity
-            onPress={() => {
-              navigation.goBack();
-            }}>
-            <Image
-              w={16}
-              h={12}
-              source={require('../../assets/Back.png')}
-              alt="back"
-              mr={20}
-            />
-          </TouchableOpacity>
-          <Text color="black" fontSize={16} fontWeight="600">
-            Posts
-          </Text>
-        </View>
-        <View
-          flexDirection="row"
-          alignItems="center"
-          px={10}
-          mb={8}
-          justifyContent="space-between">
-          <View flexDirection="row">
-            <Image
-              source={item.profile}
-              alt={'image'}
-              height={30}
-              width={30}
-              borderRadius={15}
-            />
-            <Text fontSize={14} pl={10} fontWeight="600" color="black">
-              {item.username}
-            </Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => {
-              setIsModalVisible(true);
-              openModalAndSetPostId(item.id, item.username);
-            }}>
-            <Image
-              h={20}
-              w={20}
-              source={require('../../assets/dots.png')}
-              alt="dots"
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <FlatList
-            data={item.postImages}
-            keyExtractor={(image, index) => index.toString()}
-            onScroll={e => {
-              const x = e.nativeEvent.contentOffset.x;
-              setCurrentIndex(Math.round(x / screenWidth));
-            }}
-            renderItem={({item: image, index}) => {
-              return (
-                <Image
-                  key={index}
-                  source={image}
-                  alt={item.name}
-                  w={screenWidth}
-                  height={400}
-                />
-              );
-            }}
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            pagingEnabled
-          />
-        </View>
-
-        <View
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-          mt={10}
-          px={13}>
-          <View flexDirection="row" alignItems="center" flex={1}>
+      <>
+        <View mt={10} key={item.id}>
+          <View
+            flexDirection="row"
+            alignItems="center"
+            px={10}
+            mb={8}
+            justifyContent="space-between">
+            <View flexDirection="row">
+              <Image
+                source={item.profile}
+                alt={'image'}
+                height={30}
+                width={30}
+                borderRadius={15}
+              />
+              <Text fontSize={14} pl={10} fontWeight="600" color="black">
+                {item.username}
+              </Text>
+            </View>
             <TouchableOpacity
               onPress={() => {
-                handleIsLiked(item.id);
+                setIsModalVisible(true);
+                openModalAndSetPostId(item.id, item.username);
               }}>
-              {isLiked[item.id] ? (
-                <Image
-                  source={require('../../assets/fillLike.png')}
-                  alt={'image'}
-                  height={24}
-                  width={26}
-                />
-              ) : (
-                <Image
-                  source={require('../../assets/Like.png')}
-                  alt={'image'}
-                  height={24}
-                  width={26}
-                />
-              )}
-            </TouchableOpacity>
-
-            <TouchableOpacity>
               <Image
-                source={require('../../assets/Comment.png')}
-                alt={'image'}
-                height={24}
-                width={22}
-                ml={15}
-                tintColor={'black'}
-              />
-            </TouchableOpacity>
-
-            <TouchableOpacity>
-              <Image
-                source={require('../../assets/Messanger.png')}
-                alt={'image'}
-                height={20}
-                width={24}
-                ml={15}
-                tintColor={'black'}
+                h={20}
+                w={20}
+                source={require('../../assets/dots.png')}
+                alt="dots"
               />
             </TouchableOpacity>
           </View>
+          <View>
+            <FlatList
+              data={item.postImages}
+              keyExtractor={(image, index) => index.toString()}
+              onScroll={e => {
+                const x = e.nativeEvent.contentOffset.x;
+                setCurrentIndex(Math.round(x / screenWidth));
+              }}
+              renderItem={({item: image, index}) => {
+                return (
+                  <Image
+                    key={index}
+                    source={image}
+                    alt={item.name}
+                    w={screenWidth}
+                    height={400}
+                  />
+                );
+              }}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              pagingEnabled
+            />
+          </View>
 
-          {item.postImages.length > 1 && (
-            <View
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-              flex={1}>
-              {item.postImages.map((data: any, index: number) => (
-                <View
-                  width={currentIndex === index ? 6 : 4}
-                  height={currentIndex === index ? 6 : 4}
-                  backgroundColor={currentIndex === index ? '$blue500' : 'grey'}
-                  borderRadius={currentIndex === index ? 3 : 2}
-                  marginLeft={2}></View>
-              ))}
+          <View
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            mt={10}
+            px={13}>
+            <View flexDirection="row" alignItems="center" flex={1}>
+              <TouchableOpacity
+                onPress={() => {
+                  handleIsLiked(item.id);
+                }}>
+                {isLiked[item.id] ? (
+                  <Image
+                    source={require('../../assets/fillLike.png')}
+                    alt={'image'}
+                    height={24}
+                    width={26}
+                  />
+                ) : (
+                  <Image
+                    source={require('../../assets/Like.png')}
+                    alt={'image'}
+                    height={24}
+                    width={26}
+                  />
+                )}
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Image
+                  source={require('../../assets/Comment.png')}
+                  alt={'image'}
+                  height={24}
+                  width={22}
+                  ml={15}
+                  tintColor={'black'}
+                />
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Image
+                  source={require('../../assets/Messanger.png')}
+                  alt={'image'}
+                  height={20}
+                  width={24}
+                  ml={15}
+                  tintColor={'black'}
+                />
+              </TouchableOpacity>
             </View>
+
+            {item.postImages.length > 1 && (
+              <View
+                flexDirection="row"
+                justifyContent="center"
+                alignItems="center"
+                flex={1}>
+                {item.postImages.map((data: any, index: number) => (
+                  <View
+                    width={currentIndex === index ? 6 : 4}
+                    height={currentIndex === index ? 6 : 4}
+                    backgroundColor={
+                      currentIndex === index ? '$blue500' : 'grey'
+                    }
+                    borderRadius={currentIndex === index ? 3 : 2}
+                    marginLeft={2}></View>
+                ))}
+              </View>
+            )}
+
+            <View flex={1} alignItems="flex-end">
+              <TouchableOpacity>
+                <Image
+                  source={require('../../assets/Save.png')}
+                  alt={'image'}
+                  height={24}
+                  width={20}
+                  tintColor={'black'}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          {item.like > 0 && (
+            <Text fontSize={12} fontWeight={'600'} ml={13} mt={5} color="black">
+              {isLiked[item.id] ? item.like : item.like}{' '}
+              {item.like === 1 ? 'like' : 'likes'}
+            </Text>
           )}
 
-          <View flex={1} alignItems="flex-end">
-            <TouchableOpacity>
-              <Image
-                source={require('../../assets/Save.png')}
-                alt={'image'}
-                height={24}
-                width={20}
-                tintColor={'black'}
-              />
-            </TouchableOpacity>
+          <View flexDirection="row" px={13} alignItems="center">
+            <Text fontSize={12} color="black" fontWeight="600" mr={4}>
+              {item.name}
+            </Text>
+            <Text fontSize={12} color="black">
+              {item.caption}
+            </Text>
           </View>
-        </View>
-        {item.like > 0 && (
-          <Text fontSize={12} fontWeight={'600'} ml={13} mt={5} color="black">
-            {isLiked[item.id] ? item.like : item.like}{' '}
-            {item.like === 1 ? 'like' : 'likes'}
-          </Text>
-        )}
-
-        <View flexDirection="row" px={13} alignItems="center">
-          <Text fontSize={12} color="black" fontWeight="600" mr={4}>
-            {item.name}
-          </Text>
-          <Text fontSize={12} color="black">
-            {item.caption}
+          <Text fontSize={11} color="black" px={13}>
+            {item.date}
           </Text>
         </View>
-        <Text fontSize={11} color="black" px={13}>
-          {item.date}
-        </Text>
-      </View>
+      </>
     );
   };
 
@@ -275,6 +262,25 @@ const UserPost = () => {
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         onEndReachedThreshold={0.5}
+        ListHeaderComponent={
+          <View flexDirection="row" alignItems="center" px={15} my={10}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}>
+              <Image
+                w={16}
+                h={12}
+                source={require('../../assets/Back.png')}
+                alt="back"
+                mr={20}
+              />
+            </TouchableOpacity>
+            <Text color="black" fontSize={16} fontWeight="600">
+              Posts
+            </Text>
+          </View>
+        }
         ListFooterComponent={loading ? <ActivityIndicator /> : null}
         showsVerticalScrollIndicator={false}
       />

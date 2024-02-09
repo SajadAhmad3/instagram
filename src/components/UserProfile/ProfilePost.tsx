@@ -76,7 +76,7 @@ function ProfilePost() {
                   onPress={() => handlePostPress(user.id)}>
                   <Image
                     style={{width: '100%', height: 124}}
-                    source={user.postImages[0]} // Render only the first image
+                    source={user.postImages[0]} 
                     alt={`post_${0}`}
                   />
                 </TouchableWithoutFeedback>
